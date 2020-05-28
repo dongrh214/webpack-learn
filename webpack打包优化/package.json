@@ -1,0 +1,53 @@
+{
+  "name": "single-page-pack",
+  "version": "1.0.0",
+  "description": "单入口打包",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./build/webpack.dev.js --progress --colors",
+    "build:test": "webpack --config ./build/webpack.dev.js",
+    "build:prod": "webpack --config ./build/webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^7.2.0",
+    "react-router": "^5.2.0",
+    "redux": "^4.0.5",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "autoprefixer": "^9.8.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.3",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "glob": "^7.1.6",
+    "happypack": "^5.0.1",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "html-webpack-plugin": "^4.3.0",
+    "inline-file-loader": "^0.2.0",
+    "inline-html-loader": "^0.1.0",
+    "less": "^3.11.1",
+    "less-loader": "^6.1.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "purgecss-webpack-plugin": "^2.2.0",
+    "px2rem-loader": "^0.1.9",
+    "terser-webpack-plugin": "^3.0.2",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  }
+}
