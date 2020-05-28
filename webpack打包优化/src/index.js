@@ -12,6 +12,9 @@ import {
 import Loadable from 'react-loadable';
 import Main from "./components/Layout";
 
+// const ItemList = require("./item/list");
+// const OrderList = require("./order/list");
+
 const ItemList = Loadable({
     loader:  () => import("./item/list"),
     loading: () => <p>加载中...</p>,

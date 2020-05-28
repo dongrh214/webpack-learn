@@ -9,7 +9,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const HappyPack = require('happypack');
 const os = require('os');
-const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length/2 });
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -41,7 +41,8 @@ module.exports = {
             {
                 test: /\.js/,
                 //把对.js 的文件处理交给id为happyBabel 的HappyPack 的实例执行
-                loader: 'happypack/loader?id=happyBabel',
+                use: 'babel-loader',
+                // loader: 'happypack/loader?id=happyBabel',
                 //排除node_modules 目录下的文件
                 exclude: /node_modules/
             },
@@ -119,12 +120,19 @@ module.exports = {
         new PurgecssPlugin({
             paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
         }),
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin(),
     ],
     optimization: {
+        minimize: true,
         splitChunks: {
             minSize: 0,
             cacheGroups: {
+                default: false,
+                vendors: {
+                    name: 'vendors',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/
+                },
                 commons: {
                     name: 'commons',
                     chunks: 'all',

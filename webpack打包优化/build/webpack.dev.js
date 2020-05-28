@@ -16,7 +16,7 @@ const config = {
             }
         }
     },
-    devtool: 'source-map'
+    // devtool: 'source-map'
 };
 
 module.exports = webpackMerge(baseConfig, config);
